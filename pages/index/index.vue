@@ -1,7 +1,6 @@
 <template>
 	<view>
-		<view @click="onJump('/demos/mock/mock')">MOCK</view>
-		<view @click="onJump('/demos/user/user')">user</view>
+		<view @click="onJump('/list/age-calculator/age-calculator')">年龄计算器</view>
 	</view>
 </template>
 

@@ -39,25 +39,25 @@
 					</picker-view-column>
 				</picker-view>
 				<picker-view v-else-if="mode == 'time'" :value="valueArr" @change="change" class="u-picker-view" @pickstart="pickstart" @pickend="pickend">
-					<picker-view-column >
+					<picker-view-column v-if="!reset && params.year">
 						<view class="u-column-item" v-for="(item, index) in years" :key="index">
 							{{ item }}
-							<!-- <text class="u-text" v-if="!showTimeTag">年</text> -->
+							<text class="u-text" v-if="showTimeTag">年</text>
 						</view>
 					</picker-view-column>
-					<picker-view-column >
+					<picker-view-column v-if="!reset && params.month">
 						<view class="u-column-item" v-for="(item, index) in months" :key="index">
 							{{ formatNumber(item) }}
-							<!-- <text class="u-text" v-if="!showTimeTag">月</text> -->
+							<text class="u-text" v-if="showTimeTag">月</text>
 						</view>
 					</picker-view-column>
-					<picker-view-column >
+					<picker-view-column v-if="!reset && params.day">
 						<view class="u-column-item" v-for="(item, index) in days" :key="index">
 							{{ formatNumber(item) }}
-							<!-- <text class="u-text" v-if="!showTimeTag">日</text> -->
+							<text class="u-text" v-if="showTimeTag">日</text>
 						</view>
 					</picker-view-column>
-					<!-- <picker-view-column v-if="!reset && params.hour">
+					<picker-view-column v-if="!reset && params.hour">
 						<view class="u-column-item" v-for="(item, index) in hours" :key="index">
 							{{ formatNumber(item) }}
 							<text class="u-text" v-if="showTimeTag">时</text>
@@ -74,7 +74,7 @@
 							{{ formatNumber(item) }}
 							<text class="u-text" v-if="showTimeTag">秒</text>
 						</view>
-					</picker-view-column> -->
+					</picker-view-column>
 				</picker-view>
 				<picker-view v-else-if="mode == 'selector'" :value="valueArr" @change="change" class="u-picker-view" @pickstart="pickstart" @pickend="pickend">
 					<picker-view-column v-if="!reset">
@@ -137,6 +137,9 @@ export default {
 					year: true,
 					month: true,
 					day: true,
+					hour: false,
+					minute: false,
+					second: false,
 					province: true,
 					city: true,
 					area: true,

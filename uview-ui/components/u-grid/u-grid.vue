@@ -1,5 +1,5 @@
 <template>
-	<view class="u-grid"  :style="[gridStyle]"><slot /></view>
+	<view class="u-grid" :class="{'u-border-top u-border-left': border}" :style="[gridStyle]"><slot /></view>
 </template>
 
 <script>

@@ -6,11 +6,9 @@
 		"path": "pages/index/index"
 	}],
 	"subPackages": [{
-		"root": "demos",
+		"root": "list",
 		"pages": [{
-			"path": "mock/mock"
-		},{
-			"path": "user/user"
+			"path": "age-calculator/age-calculator"
 		}]
 	}]
 }

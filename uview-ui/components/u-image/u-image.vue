@@ -162,12 +162,16 @@ export default {
 		};
 	},
 	watch: {
-		src(n) {
-			if(!n) {
-				// 如果传入null或者''，或者false，或者undefined，标记为错误状态
-				this.isError = true;
-			} else {
-				this.isError = false;
+		src: {
+			immediate: true,
+			handler (n) {
+				if(!n) {
+					// 如果传入null或者''，或者false，或者undefined，标记为错误状态
+					this.isError = true;
+					this.loading = false;
+				} else {
+					this.isError = false;
+				}
 			}
 		}
 	},
@@ -194,10 +198,10 @@ export default {
 			this.$emit('click');
 		},
 		// 图片加载失败
-		onErrorHandler() {
+		onErrorHandler(err) {
 			this.loading = false;
 			this.isError = true;
-			this.$emit('error');
+			this.$emit('error', err);
 		},
 		// 图片加载完成，标记loading结束
 		onLoadHandler() {

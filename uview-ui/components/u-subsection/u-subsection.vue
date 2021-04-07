@@ -62,10 +62,6 @@
 				type: [Number, String],
 				default: 28
 			},
-			activeFontSize: {
-				type: [Number, String],
-				default: 28
-			},
 			// 是否开启动画效果
 			animation: {
 				type: Boolean,
@@ -163,20 +159,17 @@
 						} else {
 							style.color = this.activeColor;
 						}
-						style.fontSize = this.fontSize + 'rpx';
 					} else {
 						if (index == this.currentIndex) {
 							style.color = this.activeColor;
-							style.fontSize = this.activeFontSize ?  this.activeFontSize + 'rpx' : this.fontSize + 'rpx';
 						} else {
 							style.color = this.inactiveColor;
-							style.fontSize = this.fontSize + 'rpx';
 						}
 					}
 					// 字体加粗
 					if (index == this.currentIndex && this.bold) style.fontWeight = 'bold';
 					// 文字大小
-					
+					style.fontSize = this.fontSize + 'rpx';
 					return style;
 				};
 			},
